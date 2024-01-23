@@ -18,8 +18,9 @@ def traverse_repository(owner, api_url, data, valid_extensions, headers):
 
     if response.status_code == 200:
         contents = response.json()
+        
         for item in contents:
-            print(item['name'])
+            
             if item['type'] == 'file' and item['name'].lower().endswith(tuple(valid_extensions)):
                 file_name = os.path.splitext(item['name'])[0]
                 raw_url = f"https://raw.githubusercontent.com/{owner}/{repo}/master/{item['path']}"
@@ -27,7 +28,12 @@ def traverse_repository(owner, api_url, data, valid_extensions, headers):
             elif item['type'] == 'dir':
                 # Recursively traverse nested directories
                 api_url = item["url"]
-                traverse_repository(owner, api_url, data, valid_extensions, headers, )
+                name = item["name"]
+                print(api_url)
+                if name == 'melody':
+                    continue
+                else:
+                    traverse_repository(owner, api_url, data, valid_extensions, headers)
     else:
         print(f"Failed to retrieve repository contents. Status code: {response.status_code}")
         print(response.text)
