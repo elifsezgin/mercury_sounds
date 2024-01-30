@@ -1,0 +1,29 @@
+new sample kick_909 name(ki) time(1/2 1/2) gain(0.8)
+new sample clap_909 name(sna) time(1 1/2)  gain(0.4)
+
+list flashingLightsIntroRight1 [4 4 2 4 5 4 2 2 -2]
+list flashingLightsIntroRight2 [9 9 5 9 9 9 5 5 2]
+list flashingLightsIntroRight3 [16 14 9 16 17 16 14 9 7]
+
+list rightRht [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0]
+new synth saw name(FL1) note(flashingLightsIntroRight1) time(1/8) shape(10 100 9000) play(rightRht) fx(filter low)  gain(1)
+new synth saw name(FL2) note(flashingLightsIntroRight2) time(1/8) shape(10 100 9000) play(rightRht) fx(filter low)  gain(1)
+new synth saw name(FL3) note(flashingLightsIntroRight3) time(1/8) shape(10 100 9000) play(rightRht) fx(filter low)  gain(1)
+
+list flashingLightsIntroLeft1 [-7 -7 -5 2 4 9 14 9 4 2 -5 -7 -5 -7 -10 -12]
+list flashingLightsIntroLeft2 [-14 -10 -7 -2 0 2 5 10 5 -2 10 2 -2 -7 -12 -14]
+list flashingLightsIntroLeft3 [-10 -7 -3 2 4 5 9 14 2 14 9 5 2 -3 -7 -3]
+list flashingLightsIntroLeft4 [-14 -10 -7 -2 0 2 5 -2 5 2 -2 -7 -14 -7 -14 -7] 
+list flashingLightsLeft join(flashingLightsIntroLeft1 flashingLightsIntroLeft2 flashingLightsIntroLeft3 flashingLightsIntroLeft4)
+new synth sine note(flashingLightsLeft 1) time(1/8) fx(filter low)  gain(1)
+
+list flashingLightsMainRhythm [1 0 1 1 1 0 1 0 1 1 1 0 1 1 0 1]
+list flashingLightsMain1 join(copy([7] 7) copy([10] 4))
+list flashingLightsMain2 join(copy([10] 7) copy([14] 4))
+list flashingLightsMain3 join(copy([14] 7) copy([17] 4))
+list flashingLightsMain4 join(copy([17] 7) copy([21] 4))
+new synth saw note(flashingLightsMain1) play(flashingLightsMainRhythm) time(1/8 1/8) shape(50 50) fx(filter low)
+new synth saw note(flashingLightsMain2) play(flashingLightsMainRhythm) time(1/8 1/8) shape(50 50) fx(filter low)
+new synth saw note(flashingLightsMain3) play(flashingLightsMainRhythm) time(1/8 1/8) shape(50 50) fx(filter low)
+new synth saw note(flashingLightsMain4) play(flashingLightsMainRhythm) time(1/8 1/8) shape(50 50) fx(filter low)
+
