@@ -29,7 +29,7 @@ def traverse_repository(owner, api_url, data, valid_extensions, headers):
                 # Recursively traverse nested directories
                 api_url = item["url"]
                 name = item["name"]
-                if name == 'mercury_unfriendly_sounds':
+                if name in ['mercury_unfriendly_sounds', 'old_sounds']:
                     continue
                 else:
                     traverse_repository(owner, api_url, data, valid_extensions, headers)
