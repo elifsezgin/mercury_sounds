@@ -1,0 +1,115 @@
+set samples 'https://raw.githubusercontent.com/elifsezgin/mercury_sounds/main/sounds.json'
+set tempo 150
+set scale chromatic e
+
+list dorianScale [0 2 3 5 7 9 10 12]
+list dorianChord [0 3 7 12]
+list minorChord [0 3 7 12]
+list major5th [-1 2 7 11]
+list major6th [-3 0 4 9]
+list major4th [0 5 9 12]
+list minor7th [0 3 7 10]
+
+// prog1 stands for minor 7th on a dorian scale
+list prog1_1 [0]
+list prog1_2 [3]
+list prog1_3 [7]
+list prog1_4 [10]
+
+list prog2_1 [0 -1 -3 0]
+list prog2_2 [3 2 0 5]
+list prog2_3 [7 7 4 9]
+
+list prog3_1 [8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8]
+list prog3_2 [12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12]
+list prog3_3 [17 17 17 17 17 17 17 17 17 17 17 17 17 19 19 19]
+
+//list mel1 [0 3 9 7 6 2 8 6 4]
+list mel2 [0 3 5 0 12 10]
+list rhthm2 [1 0 1 1 0 1 0]
+
+list mel3 [0 4]
+list mel4 [7 11]
+
+
+
+set hipass 40 100
+list dynamics [1 1.25 1.5 1.75]
+list panning [-0.50 0.50 -0.50 0.50]
+list panning1 [-0.25 0 0.25 0 -0.25 0 0.25 0]
+list hatbeat [0 1 0 1 0 1 1 1 0 1 0 1 0 1 1 0]
+list beat1 [0 1 0 1 0 1 1 0 1]
+list ntss reverse(spread (5 0 12))
+// => [0 2 4 7 9]
+// => [9 7 4 2 0]
+
+//new sample sub2 time(1/4) gain(1) fx(compressor) shape(400 200) play(beat1) 
+//new sample kick2 name(kick) time(1/4) gain(0.5) fx(compressor) 
+//new sample ride1 time(1/16) gain(0.4) fx(reverb 0.6) pan(panning1) fx(filter hi 1/16 700 1000 0.8) pitch(-1)
+//new sample hat4 time(1/16 2/8) gain(0.8) pan(panning) fx(reverb 0.6) 
+//new sample tabla_lo time(2/16) pitch(1) pan(panning) fx(compressor) gain(0.5) 
+//new sample tabla_mid time(5/8) pitch(0) shape(off) pan(random) fx(compressor) fx(filter low 1/1 100 800 0.6) gain(0.5)
+//new sample noise1 time(1) shape(off) gain(0.3) pan(panning 1) fx(reverb) pitch(0)
+//new synth saw time(1/8) note(ntss) shape(off) gain(0.5) fx(reverb 0.6) fx(filter low 1/16 200 6000 0.6 0 0.05)
+//new synth saw time(1/2) note(ntss) shape(off) fx(filter low 1/1 100 4000 0.8)
+
+// new synth saw name(chords1) note(prog3_1 1) fx(filter low 200) play(rhthm2) fx(delay 1/8 0.8) fx(reverb) fx(compressor) time(1/4) gain(0.8) pan(panning1)
+// new synth saw name(chords2) note(prog3_2 1) fx(filter low 200) play(rhthm2) fx(delay 1/8 0.8) fx(reverb) fx(compressor) time(1/4) gain(0.9) pan(panning1)
+// new synth saw name(chords2) note(prog3_3 1) fx(filter low 200) play(rhthm2) fx(delay 1/8 0.8) fx(reverb) fx(compressor) time(1/4) gain(0.8) pan(panning1)
+
+// new synth saw name(melody) note(dorianScale 1) fx(filter high 300) time(1/2) gain(0.6) shape(10 10 2000) pan(panning)
+
+
+// list billie1 [3 3 6 3 3 3 3 6 3 1 3 3 6 3 3 3 3 6 3 1 8 8 11 8 8 8 8 11 8 15 10 10 13 10 8]
+// list billie1rhtMain [1 0 0 1 1 1 0 1 0 1 0 1 1 1 1 0]
+// list billie1rhtEnd every([1 0 0 1 1 1 0 1] 1 16)
+// list billie1rht join(copy(billie1rhtMain 3) billie1rhtEnd)
+
+// new synth saw name(billie) note(billie1) play(billie1rht) time(1/8) 
+//   set billie fx(filter low 400) shape(10 10 1000) fx(reverb) gain(0) fx(compressor)
+
+// list billie2part1 [-4 3 -4 2 3 2 -1]
+// list billie2part2 [1 8 1 7 8 7 4]
+// list billie2part3 [3 10 3 8 3 1]
+// list billie2 join(copy(billie2part1 4) copy(billie2part2 2) billie2part3) 
+// list billie2rhtMain [1 1 0 1 1 1 1 1]
+// list billie2rhtEnd [1 1 0 1 1 1 0 1]
+// list billie2rht join(copy(billie2rhtMain 6) every(billie2rhtEnd 2 8))
+
+// new synth saw name(billieOne) 
+//   set billieOne note(billie2 1) play(billie2rht) time(1/8) gain(0) 
+//   set billieOne fx(filter low 800) shape(10 10 1000) fx(reverb) 
+
+
+// new sample kick_909 name(ki) time(1/2 1/2) gain(0.8)
+// new sample clap_909 name(sna) time(1 1/2)  gain(0.4)
+
+// list flashingLightsIntroRight1 [4 4 2 4 5 4 2 2 -2]
+// list flashingLightsIntroRight2 [9 9 5 9 9 9 5 5 2]
+// list flashingLightsIntroRight3 [16 14 9 16 17 16 14 9 7]
+
+// list rightRht [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0]
+// new synth saw name(FL1) note(flashingLightsIntroRight1) time(1/8) shape(10 100 9000) play(rightRht) fx(filter low) gain(1) 
+// new synth saw name(FL2) note(flashingLightsIntroRight2) time(1/8) shape(10 100 9000) play(rightRht) fx(filter low) gain(1) 
+// new synth saw name(FL3) note(flashingLightsIntroRight3) time(1/8) shape(10 100 9000) play(rightRht) fx(filter low) gain(1) 
+
+// list flashingLightsIntroLeft1 [-7 -7 -5 2 4 9 14 9 4 2 -5 -7 -5 -7 -10 -12]
+// list flashingLightsIntroLeft2 [-14 -10 -7 -2 0 2 5 10 5 -2 10 2 -2 -7 -12 -14]
+// list flashingLightsIntroLeft3 [-10 -7 -3 2 4 5 9 14 2 14 9 5 2 -3 -7 -3]
+// list flashingLightsIntroLeft4 [-14 -10 -7 -2 0 2 5 -2 5 2 -2 -7 -14 -7 -14 -7] 
+// list flashingLightsLeft join(flashingLightsIntroLeft1 flashingLightsIntroLeft2 flashingLightsIntroLeft3 flashingLightsIntroLeft4)
+// new synth sine note(flashingLightsLeft 1) time(1/8) fx(filter low)  gain(1)
+
+// list flashingLightsMainRhythm [1 0 1 1 1 0 1 0 1 1 1 0 1 1 0 1]
+// list flashingLightsMain1 join(copy([7] 7) copy([10] 4))
+// list flashingLightsMain2 join(copy([10] 7) copy([14] 4))
+// list flashingLightsMain3 join(copy([14] 7) copy([17] 4))
+// list flashingLightsMain4 join(copy([17] 7) copy([21] 4))
+// new synth saw note(flashingLightsMain1) play(flashingLightsMainRhythm) time(1/8 1/8) shape(50 50) fx(filter low)
+// new synth saw note(flashingLightsMain2) play(flashingLightsMainRhythm) time(1/8 1/8) shape(50 50) fx(filter low)
+// new synth saw note(flashingLightsMain3) play(flashingLightsMainRhythm) time(1/8 1/8) shape(50 50) fx(filter low)
+// new synth saw note(flashingLightsMain4) play(flashingLightsMainRhythm) time(1/8 1/8) shape(50 50) fx(filter low)
+
+
+
+
