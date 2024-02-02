@@ -1,3 +1,4 @@
+set scale chromatic e
 new sample kick_909 name(ki) time(1/2 1/2) gain(0.8)
 new sample clap_909 name(sna) time(1 1/2)  gain(0.4)
 

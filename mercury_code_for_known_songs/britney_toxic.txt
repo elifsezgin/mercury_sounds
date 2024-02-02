@@ -1,0 +1,5 @@
+
+list toxicNotes [-4 -4 -1 -2 -4 -2 -1 -4 -1 -2 -4 25 22 23 22 20]
+list toxicRhythm [1 0 1 0 1 1 1 1 1 0 0 1 1 1 1 0 1 0 0 0 1 0 0 0 1 0 1 0 1 0 0 0]
+
+new synth saw name(brt) note(toxicNotes) play(toxicRhythm) fx(reverb 0.8) time(1/16) shape(100 100) steal(on)

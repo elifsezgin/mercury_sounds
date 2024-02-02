@@ -1,0 +1,18 @@
+set scale chromatic e
+// kill bill
+list killBillNotesPart1 [8 1 4 8 6 4 9 1 6 9 8 6 8 -4 0 9 8 6 4 3]
+list killBillRhythmPart1 [1 0 1 0 1 0 1 0 1 0 0 0 1 0 0 0 1 0 1 0 1 0 1 0 1 0 0 0 1 0 0 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0]
+list killBillNotesPart2 [8 8 8 8 9 8 8 8 8 8 8 8 9 8 8 6 6 6 6 8 6 6]
+list killBillRhythmPart2 [1 0 1 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 0 1 0 1 0 0 0 0 0 1 1 1 0 1 1 0 0 1 0 1 0 0 0]
+list killBillNotes join(killBillNotesPart1 killBillNotesPart2)
+list killBillRhythm join(killBillRhythmPart1 killBillRhythmPart2)
+
+list killBillChord1 [1 -4 -8 0 -1 0]
+list killBillChord2 [6 0 4 4 4 3]
+list killBillChord3 [9 3 1 8 8 7]
+list killBillChordRhythm [1 0 1 0 1 0 1 1 1 0]
+new synth saw note(killBillNotes) play(killBillRhythm) time(1/8) shape(10 10 1000) fx(filter) fx(delay)
+
+new synth saw note(killBillChord1 0) play(killBillRhythm) time(1 2) shape(10 10 2000) fx(filter)
+new synth saw note(killBillChord2 0) play(killBillRhythm) time(1 2) shape(10 10 2000) fx(filter)
+new synth saw note(killBillChord3 0) play(killBillRhythm) time(1 2) shape(10 10 2000) fx(filter)
