@@ -1,0 +1,8 @@
+set scale chromatic c
+
+list fartProg chordsFromNumerals([IIIm])
+list fartProgRht [1 0 0 0 0 1 0 0]
+list fartNotes [11 7 9 11 12 11 9]
+list fartRht [1 0 1 1 1 1 1 1]
+new polySynth saw name(sawp) note(fartProg) time(1/8) fx(filter) play(fartProgRht) gain(0.7)
+new synth triangle name(fart) note(fartNotes 2) play(fartRht) time(1/8) fx(degrade [0.7]) fx(compressor) 

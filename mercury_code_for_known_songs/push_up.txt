@@ -1,0 +1,17 @@
+set scale chromatic c
+
+new input default name(mic)
+    set mic time(1) gain(1)
+    set mic fx(degrade 0.5) fx(delay 1/4 1/4 0.8) 
+
+list pushUpNotes1 [10 10 10 7 9 9 9 7 6 6 6 6 6]
+list pushUpNotes2 [7 7 7 2 9 9 9 7 6 6 6 6 6]
+list pushUpNotes join(copy(pushUpNotes1 2) copy(pushUpNotes2 2))
+
+list pushUpNotesL1 [2 2 2 2 3 3 3 3 2 2 2 2 2]
+list pushUpNotesL2 [-2 -2 -2 -2 -2 3 3 3 2 2 2 2 2 -2 -2 -2 -2 0 0 0 0 2 2 2 2 2]
+list pushUpNotesL join(copy(pushUpNotesL1 2) pushUpNotesL2)
+list pushUpRht [1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0]
+
+new polySynth triangle note(pushUpNotes 2) name(right) play(pushUpRht) time(1/8) fx(reverb) fx(delay) shape(50 100) 
+new polySynth triangle note(pushUpNotesL 1) name(left) play(pushUpRht) time(1/8) fx(reverb) fx(delay) shape(50 100)  
