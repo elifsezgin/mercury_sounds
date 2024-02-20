@@ -43,6 +43,7 @@ if __name__ == "__main__":
     output_file = "sounds.json"
     token = os.environ.get("ELIF_GITHUB_ACCESS_TOKEN")
 
+    print("token",token)
     valid_extensions = ['.wav', '.mp3', '.ogg', 'm4a', 'flac']
 
     api_url = f"https://api.github.com/repos/{owner}/{repo}/contents"
