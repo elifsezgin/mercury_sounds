@@ -1,0 +1,49 @@
+// EDUCATIONAL STREAM
+
+set tempo 100 5000
+set scale chromatic e
+set volume 1 1000
+
+set randomSeed 10
+list rhythmElif [1 1 1 0]
+
+list rhyt1 [1 0 0 1 0 0 1 0]
+list rhyt2 [0 1 1 0 1 1 0 1]
+
+new sample kick_808 name(kick) time(1/8) 
+new sample snare_909 time(1/8) play(rhyt1) gain(1)  
+new sample hat_909 time(1/8) play(rhyt2) gain(1)  
+
+list notes [0 4 7 12]
+// new sample piano_a time(1/4) note(notes) gain(0.5)
+
+list fadeIn [10 20 400]
+list fadeOut [100 20 40]
+// waveforms:  saw, sine, triangle, square
+// fx: filter, delay, reverb
+list fibo fibonacci(7)
+list pisa pisano(13)
+print fibo
+print pisa
+
+list rht1 clave(10)
+list rht2 coin(10)
+print rht1
+print rht2
+print note1
+// new synth saw name(saw1) note(notes 1) time(1/4) gain(0.4) fx(filter low 1/8 500 2000) fx(delay 1/16 3/16 1) //play(rht2)
+
+list akor chordsFromNumerals([Vm7])
+list flatAkor flat(akor)
+print akor
+print flatAkor
+
+
+list coldplay1 [11 6 3 11 6 3 11 6]
+list coldplay2 [9 6 1 9 6 1 9 6]
+list coldplay3 [8 4 1 8 4 1 8 4]
+
+list coldplay join(coldplay1 coldplay2 coldplay2 coldplay3)
+
+new sample piano_a note(coldplay) time(1/8) fx(reverb) fx(delay) fx(filter)
+

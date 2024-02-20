@@ -1,0 +1,63 @@
+// set samples "https://raw.githubusercontent.com/elifsezgin/mercury_sounds/main/sounds.json"
+
+set tempo 40 5000 
+set crossFade 0
+set scale chromatic e
+
+// new sample gong_hi name(gong) time(2) shape(off) speed(0.3) pitch(0) gain(0.5)
+// new sample bowl_hi name(bowl) time(3) speed(0.125) note(ntss) gain(0.5)
+// new sample drone_cymbal name(drone) time(1) speed(0.25) fx(filter low 400 3000) gain(0.5)
+
+set randomSeed 1000
+set hipass 40 100
+list dynamics [1 1.25 1.5 1.75]
+list panning [-0.50 0.50 -0.50 0.50]
+list panning1 [-0.25 0 0.25 0 -0.25 0 0.25 0]
+list hatbeat [0 1 0 1 0 1 1 1 0 1 0 1 0 1 1 0]
+list beat1 [0 1 0 1 0 1 0 1 1]
+list ntss reverse(spread (24 0 12))
+list ntsss reverse(spread (12 1 0))
+list degrades spreadF(16 0.5 0.9)
+list fadeOut [20 20 100 20 200 500]
+
+
+
+new sample sub1 time(1/4) gain(1) fx(compressor) shape(400 200) 
+new sample kick_808 name(kick) time(1/4) gain(0.7) fx(compressor) 
+new sample clap_808 time(2/4) gain(0.4) fx(reverb 0.3)
+new sample hat_909_open time(2/8 1/8) gain(0.6) pan(panning) fx(reverb 0.6)  
+//new sample hat_click time(2/8) gain(0.3) pan(panning1) pitch(-1) fx(reverb 0.3)
+
+new sample chimes time(1/8) gain(0.5) pan(panning1) pitch(0) fx(reverb 0.4) fx(squash) 
+
+new sample scrape time(3/8) pitch(0) pan(panning) fx(compressor) gain(0.3) fx(reverb 0.7) 
+new sample tabla_mid time(5/16) pitch(2) shape(off) pan(random) fx(compressor) gain(0.7)
+new sample tabla_lo time(8/16) play(beat1) gain(0.7) fx(reverb 0.3) fx(distortion)
+new sample metal time(2/8) play(hatbeat) pan(random) fx(reverb 0.4) pitch(2) gain(0.6)
+new synth square time(1/16) shape(20 fadeOut) gain(0.5) fx(reverb 0.2) play(ntsss)
+
+
+// new input default name(mic)
+//     set mic time(1/16) shape(1 1/32 1) gain(1)
+//     set mic fx(shift -12) fx(delay 1/16 3/16 0.9)
+
+// list notes spread(5 0 12)
+
+list prog1 [I V VI]
+list prog2 [II V I]
+list prog3 [I V IV VI]
+list prog4 [I III V VIIb]
+
+list r1 euclid(10 7)
+list r2 coin(8)
+
+list akor chordsFromNumerals(prog4)
+// new polySample pluck_a name(chords1) note(akor 0) fx(delay 1/8 0.8) fx(reverb) fx(compressor) time(1/4) pan(panning1) fx(filter low 400) gain(0.2) play(r1) // timediv([1 1 2 1])
+// new polySynth saw note(akor) time(1/4) fx(filter) 
+new polySynth saw name(chords1) note(akor -1) fx(delay 1/8 0.8) fx(reverb) fx(compressor) time(1/4) pan(panning1) fx(filter low 400) gain(0) play(r1) // timediv([1 1 2 1])
+list mel pisano(19)
+list mel2 [-1 0 2 3 6 7]
+list smel2 shuffle(mel2)
+list merged join(mel2 mel)
+new synth saw name(melody) note(merged 1) time(1/8) gain(0) shape(10 100 2000) pan(panning) fx(filter low 1/4 200 800) fx(reverb) fx(delay 1/16 1/16 0.8)  // play(r2)
+

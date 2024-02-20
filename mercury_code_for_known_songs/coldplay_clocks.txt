@@ -1,0 +1,9 @@
+set scale chromatic e
+list coldplay1 [11 6 3 11 6 3 11 6]
+list coldplay2 [9 6 1 9 6 1 9 6]
+list coldplay3 [8 4 1 8 4 1 8 4]
+
+list coldplay join(coldplay1 coldplay2 coldplay2 coldplay3)
+
+list rhyt [1 0 0 1 0 0 1 0]
+list rhyt [0 1 1 0 1 1 0 1]
