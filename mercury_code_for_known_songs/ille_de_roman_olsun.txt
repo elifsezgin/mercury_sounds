@@ -1,0 +1,32 @@
+set scale chromatic e
+set tempo 120
+
+list roman [1 0 1 0 1 0 1 0 0]
+new sample kick2 time(1/9) play(roman)
+
+list hatRitim [0 1 0 1 0 1 0 1 1]
+new sample hat1 time(1/9) play(hatRitim)
+
+list romanMel1 [5 13 12 10 12 9 10]
+list romanMel2 [9 10 12 10 9 10 6 9]
+list romanMel3 [6 9 10 9 6 9 5 6]
+list romanMel4 [5 6 9 10 9 6 5 5]
+list romanMel join(romanMel1 romanMel2 romanMel3 romanMel4)
+list romanRit1 [1 0 1 1 1 1 1 1 0]
+list romanRit2 [1 1 1 1 1 1 1 1 0]
+list romanRit join(romanRit1 copy(romanRit2 3))
+
+new sample violin_a note(romanMel) time(1/9) play(romanRit)
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+// set samples "https://raw.githubusercontent.com/elifsezgin/mercury_sounds/main/sounds.json"
+
+
+// part 1 
+
+set tempo 120
+set crossFade 4/1
+
+new sample glock_c5 name(gong) time(4) speed(0.2) gain(0.5)
+new sample bowl_lo name(bowl) time(3) speed(0.125) gain(0)
+new sample drone_cymbal name(drone) time(7) speed(0.25)  gain(0)
+
+// slowly increase the speed
+
+// add in rhythm
+new sample kick4 name(kick) time(1/1) gain(0.8)
+new sample hat2 name(hat) time(1/2) gain(0.8)
+
+// nice to have variables
+list randomFloats shuffle(spreadF(0 1 0.2))
+list random10s clave(10)
+list rt clave(16)
+list lowFValues shuffle(drunk(4 100 300 700))
+list highFValues shuffle(drunk(4 100 700 1100))
+
+// add in some chord progressions
+list prog1 chordsFromNumerals(Im)
+new polySample pluck_c note(prog1 1) time(1/4) fx(filter) gain(0)
+
+// add in some pisano
+list pisa pisano(13)
+new synth triangle name(synth1) note(pisa 1) time(1/16) fx(filter) gain(0.8) shape(20 400) pan(rt)
+
+// play with increasing notes with fibonacci
+list fib fibonacci(10)
+list palFib palindrome(fib)
+new synth triangle name(synth2) note(fib 1) time(1/16) fx(filter) gain(0.8) shape(20 400) pan(rt)
+
+// add in loop samples
+new sample loop2Bar2 name(loopX) stretch(2) start(spreadF(2 0 1)) gain(0.4)
+new sample loop5Bar8 name(loopX) stretch(8) start(spreadF(8 0 1)) fx(filter) fx(reverb) pan(randomFloats)
+
+
+// adding in the sub
+new sample sub2Bar4 name(loopX) stretch(4) start(spreadF(4 0 1)) fx(filter) 
+
+
+// use choir for interesting sounds (maybe for part 2)
+new sample choir_01 name(loopX) start(shuffle(spreadF(16 0 1))) fx(filter) shape(10 300) time(1/16)
+
+new sample choir_02 name(loopX) start(shuffle(spreadF(16 0 1))) fx(filter) shape(10 300) time(1/4) play(rt) fx(delay 1/16 3/16 1)
+
+
+//lofi
+new sample choir_02 name(loopX) start(shuffle(spreadF(16 0 1))) fx(filter) shape(50 1200) time(1/2) fx(lfo 1/16) gain(gains)
+
+// use this for bass like effects
+new sample door name(loopX) start(shuffle(spreadF(16 0 1))) fx(filter) shape(10 300) time(1/4) play(rt) fx(delay 1/16 3/16 1)
