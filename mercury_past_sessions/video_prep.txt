@@ -37,12 +37,11 @@ list palFib palindrome(fib)
 new synth triangle name(synth2) note(fib 1) time(1/16) fx(filter) gain(0.8) shape(20 400) pan(rt)
 
 // add in loop samples
-new sample loop2Bar2 name(loopX) stretch(2) start(spreadF(2 0 1)) gain(0.4)
-new sample loop5Bar8 name(loopX) stretch(8) start(spreadF(8 0 1)) fx(filter) fx(reverb) pan(randomFloats)
-
+new sample loop2bar2 name(loopX) stretch(2) start(spreadF(2 0 1)) gain(0.4)
+new sample loop5bar8 name(loopX) stretch(8) start(spreadF(8 0 1)) fx(filter) fx(reverb) pan(randomFloats)
 
 // adding in the sub
-new sample sub2Bar4 name(loopX) stretch(4) start(spreadF(4 0 1)) fx(filter) 
+new sample sub2bar4 name(loopX) stretch(4) start(spreadF(4 0 1)) fx(filter) 
 
 
 // use choir for interesting sounds (maybe for part 2)

@@ -1,0 +1,78 @@
+// intro
+new sample bowl_hi name(bowl) time(4) speed(0.2) gain(0.5) fx(lfo 1/16)
+new sample choir_02 name(choir) time(1) speed(0.4) gain(0.6) fx(lfo 1/16) shape(2000) fx(filter high 300 0.5)
+
+// rain
+new sample rain45sec name(rain)  stretch(24) start(spreadF(24 0 1))
+
+// Melody variations
+// epic choir 
+new sample choir_02 name(loopX) start(shuffle(spreadF(16 0 1))) shape(50 1200) time(1/2) fx(lfo 1/16) gain(1)
+
+// fun choir
+new sample choir_01 name(loopX) start(shuffle(spreadF(16 0 1))) shape(10 300) time(1/8) fx(filter high 600 0.5)
+
+// algorithmic melodies
+
+list pisa1 pisano(11)
+list random10s clave(10)
+new synth saw name(saw1) note(pisa1 0) time(1/16) gain(1) shape(20 300) pan(random10s) fx(filter band 1100 0.4) fx(reverb 0.3)
+
+list pisa2 pisano(5)
+list euc euclidean(16 10)
+list random10s clave(10)
+new sample chimes name(chimes1) note(pisa2 0) time(1/16) gain(1) shape(20 300) pan(random10s) fx(reverb 0.3) play(euc)
+
+list pisa3 pisano(5)
+list euc euclidean(16 10)
+list random10s clave(10)
+new sample kalimba_a name(kalimba1) note(pisa3 0) time(1/16) gain(1) shape(300) pan(random10s) fx(reverb 0.3) play(euc) fx(filter low 900 0.9)
+
+list fib1 fibonacci(8)
+list random10s clave(10)
+new synth sine name(sine1) note(fib1 1) time(1/16) fx(filter) gain(0.8) shape(20 400) pan(random10s)// fx(lfo 1/16) fx(compressor)
+
+list fib2 fibonacci(4)
+list random10s clave(10)
+new synth sine name(sine2) note(fib2 1) time(1/16) fx(filter) gain(0.8) shape(20 400) pan(random10s)
+
+list luc1 lucas(3)
+list euc euclidean(16 9)
+new sample kalimba_g name(kalimba2) note(luc1 -1) time(1/16) gain(1) shape(300) pan(random10s) fx(reverb 0.3) play(euc) fx(filter low 900 0.9)
+
+list luc2 lucas(5)
+list euc euclidean(16 10)
+new sample marimba_b2 name(marimba2) note(luc2 -1) time(1/16) gain(1) shape(300) pan(random10s) fx(reverb 0.3) play(euc) fx(filter low 900 0.6)
+
+list luc3 lucas(5)
+list euc euclidean(16 10)
+new sample xylo_c4 name(xylo1) note(luc3 -2) time(1/16) gain(1) shape(300) pan(random10s) fx(reverb 0.3) play(euc) fx(filter low 900 0.6)
+
+// harp_c3 ?
+
+// chord progressions
+list prog1 [I V VI]
+list prog2 [II V I]
+list prog3 [I V IV VI]
+list prog4 [I III V VIIb]
+list prog5 [I]
+
+list akor chordsFromNumerals(prog5)
+list highFDefined [500 600 400 600]
+new polySample pluck_a name(chords1) note(akor 0) fx(delay 1/8 0.8) fx(reverb) time(1/4) pan(random) fx(filter high highFDefined 0.5) gain(1) timediv([1 1 4 1])
+
+// minimal melody
+new sample drone_cymbal time(2/16) gain(0.8) fx(squash squashes) pan(panning1) fx(lfo 1/16)
+
+list lowFValues shuffle(drunk(4 100 300 700))
+list randomFloats shuffle(spreadF(0 1 0.2))
+list random10s clave(10)
+
+
+// LOOPS
+// soft melody samples
+new sample loop4bar4 name(loopX) stretch(4) start(spreadF(4 0 1)) fx(filter low 800 0.6) 
+
+// melodic melodies
+new sample lofiLoop3bar2 name(lofiLoop3) stretch(2) start(spreadF(2 0 1)) gain(0.5) fx(filter low 800 0.6) 
+new sample loop2bar2 name(loopX) stretch(2) start(spreadF(2 0 1)) gain(0.4)

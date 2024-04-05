@@ -3,11 +3,19 @@ set crossFade 4000
 
 new sample rain45sec name(rain)  stretch(24) start(spreadF(24 0 1))
 
+
 // Loops
 new sample lofiLoop1bar8 stretch(8) start(spreadF(8 0 1))
 // new sample lofiPianoLoop1bar16 name(pianoLoop) stretch(8) start(spreadF(8 0 1)) fx(filter) 
 new sample loop1bar12 name(loop1) stretch(12) start(spreadF(12 0 1))
 new sample loop3bar18 name(loop3) stretch(18) start(spreadF(18 0 1)) 
+new sample lofiLoop2bar8 name(lofiLoop2) stretch(8) start(spreadF(8 0 1)) gain(0.5) // fx(filter low 400 0.6)
+new sample lofiLoop7bar8 name(lofiLoop7) stretch(8) start(spreadF(8 0 1)) gain(0.5) // fx(filter low 400 0.6) // no percussion
+new sample lofiLoop3bar2 name(lofiLoop3) stretch(2) start(spreadF(2 0 1)) gain(0.5) // fx(filter low 400 0.6)
+new sample lofiLoop5bar4 name(lofiLoop5) stretch(4) start(spreadF(4 0 1)) gain(1) 
+new sample lofiLoop6bar4 name(lofiLoop6) stretch(4) start(spreadF(4 0 1)) gain(1) 
+
+
 // need rhyt for the next ones
 new sample loop4bar4 nam e(loop4)  stretch(4) start(spreadF(4 0 1)) 
 // new sample loop5bar8 name(loop5) stretch(8) start(spreadF(8 0 1)) // fx(filter low 400 0.6)

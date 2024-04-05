@@ -1,0 +1,6 @@
+- make sure to remove set samples line
+- make sure to check crossFade 
+    - 4000 in intro 
+    - 1000 in general 
+    - 10 right after hipass
+- make sure to remove code when not needed
