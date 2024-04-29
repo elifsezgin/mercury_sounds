@@ -6,7 +6,7 @@ list billie1rhtEnd every([1 0 0 1 1 1 0 1] 1 16)
 list billie1rht join(copy(billie1rhtMain 3) billie1rhtEnd)
 
 new synth saw name(billie) note(billie1) play(billie1rht) time(1/8) 
-  set billie shape(10 10 1000) fx(reverb) gain(2) fx(compressor) fx(filter low 400)
+  set billie shape(10 10 1000) fx(reverb) gain(2) fx(compressor)
 
 list billie2part1 [-4 3 -4 2 3 2 -1]
 list billie2part2 [1 8 1 7 8 7 4]
@@ -18,4 +18,4 @@ list billie2rht join(copy(billie2rhtMain 6) every(billie2rhtEnd 2 8))
 
 new synth saw name(billieOne) 
   set billieOne note(billie2 1) play(billie2rht) time(1/8) gain(1.5) 
-  set billieOne shape(10 10 1000) fx(reverb) fx(filter low 800) 
+  set billieOne shape(10 10 1000) fx(reverb)

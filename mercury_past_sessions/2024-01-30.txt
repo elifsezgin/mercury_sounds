@@ -32,7 +32,6 @@ list mel3 [0 4]
 list mel4 [7 11]
 
 
-
 set hipass 40 100
 list dynamics [1 1.25 1.5 1.75]
 list panning [-0.50 0.50 -0.50 0.50]
