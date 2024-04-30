@@ -79,6 +79,12 @@ new sample xylo_c4 name(xylo1) note(luc3 -2) time(1/16) gain(1) shape(300) pan(r
 
 // harp_c3 ?
 
+// some tunes with modulation and notes
+list nts1 [3 2 1 4 2 1]
+list nts2 [3 2 5 4 12 1]
+list euc euclidean(16 6)
+new synth saw note(shuffle(nts2) 1) time(1/16) fx(filter high 1/16 500 3000 0.9 0.3) fx(delay 1/16 1) play(euc)
+
 // chord progressions
 list prog1 [I V VI]
 list prog2 [II V I]
@@ -185,3 +191,11 @@ new sample tabla_mid name(tablaMid) time(5/8) pitch(-1) shape(off) pan(random) f
 new sample snare1 name(sadfasdf) time(2/8 1/8) gain(0.6) pan(panning1) pitch(0) play(beat1)
 new sample maracas_808 name(asdf) time(1/16) gain(dynamics) fx(reverb 0.4) pan(panning2)
 new sample shaker1 name(shaker) time(1/16) gain(dynamics) fx(reverb 0.4) pan(panning2)
+
+
+
+list octBase [-1 0]
+list oct repeat(octBase 8)
+list nts [1 2 1 3 0] 
+list dynamics [0.7 0.8 0.7 0.9]
+new sample clave_808  name(clv2) time(2/8 1/8) fx(reverb 0.4) fx(delay 1/16) note(shuffle(nts1) oct) fx(filter high 1/1 500 1400 0.5 0.03) fx(delay 1/16) gain(dynamics)

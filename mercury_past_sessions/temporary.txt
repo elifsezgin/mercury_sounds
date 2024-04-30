@@ -1,11 +1,9 @@
 // set samples "https://raw.githubusercontent.com/elifsezgin/mercury_sounds/main/sounds.json"
 set scale minor g
-set tempo 70
+set tempo 120
 // set volume 
 // set hipass 40 1/2
 // set crossFade 1/2
-
-
 
 set randomSeed 11230
 
